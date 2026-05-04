@@ -1,0 +1,24 @@
+def is_number_palindrome(num):
+    # Negative numbers are not palindromes (due to the - sign)
+    if num < 0:
+        return False
+    
+    original_num = num
+    reversed_num = 0
+    
+    while num > 0:
+        # Get the last digit
+        digit = num % 10
+        # Build the reversed number
+        reversed_num = (reversed_num * 10) + digit
+        # Remove the last digit from the original
+        num //= 10
+        
+    return original_num == reversed_num
+
+# Testing the function
+test_val = 121
+if is_number_palindrome(test_val):
+    print(f"{test_val} is a palindrome!")
+else:
+    print(f"{test_val} is not a palindrome.")
